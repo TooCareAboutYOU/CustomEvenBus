@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/event.iml" filepath="$PROJECT_DIR$/event.iml" />
-      <module fileurl="file://$PROJECT_DIR$/libeventbus/libeventbus.iml" filepath="$PROJECT_DIR$/libeventbus/libeventbus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libmyevent/libmyevent.iml" filepath="$PROJECT_DIR$/libmyevent/libmyevent.iml" />
     </modules>
   </component>
 </project>

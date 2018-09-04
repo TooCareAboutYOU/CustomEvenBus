@@ -1,10 +1,10 @@
 package com.event.eventbus;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.event.EventBus;
 import com.event.custom_eventbus_master.R;
 
 public class SecondActivity extends AppCompatActivity {
@@ -17,8 +17,10 @@ public class SecondActivity extends AppCompatActivity {
         findViewById(R.id.btn_send).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EventBus.getDefault().post(new FriendBean("Hello",18));
+//                EventBus.getDefault().post(new FriendBean("Hello",18));
             }
         });
     }
+
+
 }

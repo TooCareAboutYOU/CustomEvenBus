@@ -6,10 +6,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.event.EventBus;
-import com.event.Subscribe;
-import com.event.ThreadMode;
+
 import com.event.custom_eventbus_master.R;
+import com.myevent.EventBus;
+import com.myevent.Subscribe;
+import com.myevent.ThreadMode;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_send).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //子线程发送消息
 //                new Thread(new Runnable() {
 //                    @Override
 //                    public void run() {
@@ -48,30 +50,26 @@ public class MainActivity extends AppCompatActivity {
 //                    }
 //                });
 
-                EventBus.getDefault().post(new FriendBean("哈哈哈",18));
+                EventBus.getDefault().post(new FriendBean("Main",20));
 
             }
         });
 
     }
 
-    /**
-     *
-     * @param content
-     */
+
     @Subscribe(ThreadMode.MainThread)
     public void OnEvent(final FriendBean content){
-//        Log.i(TAG, "receive: "+content.toString()+"\n"+Thread.currentThread().getName());
-//        runOnUiThread(new Runnable() {
-//            @Override
-//            public void run() {
-//                mTextView.setText(content.toString());
-//
-//            }
-//        });
+        Log.i(TAG, "receive: "+content.toString()+"\n"+Thread.currentThread().getName());
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mTextView.setText(content.toString());
+
+            }
+        });
 
         mTextView.setText(content.toString());
-
     }
 
     @Override

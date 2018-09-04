@@ -33,19 +33,11 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
 
-def SDK_BASENAME = "eventbus";
-def SDK_VERSION = ":v1.0";
-def sdkDestinationPath = "build/outputs/jar/";
-def zipFile = file('build/intermediates/bundles/release/classes.jar')
-
-task deleteBuild(type: Delete) {
-    delete sdkDestinationPath + SDK_BASENAME + SDK_VERSION + ".jar"
+task makeJar(type: Copy){
+    delete'build/libs/myEventBus.jar'
+    from('build/intermediates/bundles/release/')
+    into('build/libs/')
+    include('classes.jar')
+    rename('classes.jar','myEventBus.jar')
 }
-task makeJar(type: Jar) {
-    from zipTree(zipFile)
-    from fileTree(dir: 'src/main', includes: ['assets/**']) // 打包assets目录下的所有文件
-    baseName = SDK_BASENAME + SDK_VERSION
-    destinationDir = file(sdkDestinationPath)
-}
-
-makeJar.dependsOn(deleteBuild, build)
+makeJar.dependsOn(build)

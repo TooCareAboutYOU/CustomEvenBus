@@ -129,21 +129,21 @@
 
 
 
--keep class com.event.SubscribeMethod{
+-keep class com.event.a.libevent.SubscribeMethod{
     public *;
 }
 
--keep class com.event.EventBus{
+-keep class com.event.a.libevent.EventBus{
     public *;
 }
 
--keep interface com.event.Subscribe{
+-keep interface com.event.a.libevent.Subscribe{
 #    public static **[] values();
 #    public static ** valueOf(java.lang.String);
 }
 
 #classmembers
--keep enum com.event.ThreadMode {
+-keep enum com.event.a.libevent.ThreadMode {
     public static **[] values();
     public static ** valueOf(java.lang.String);
     *;

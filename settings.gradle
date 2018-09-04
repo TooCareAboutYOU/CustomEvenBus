@@ -1,1 +1,1 @@
-include ':app', ':libeventbus'
+include ':app', ':libmyevent'

@@ -1,4 +1,4 @@
-package com.event;
+package com.myevent;
 
 import android.os.Build;
 import android.os.Handler;
